@@ -35,10 +35,8 @@ export default {
       
       let zip = this.user.zipCode;
 
-    console.log(process.env.VUE_APP_WEATHERKEY)
-
       return instance
-        .get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${process.env.VUE_APP_WEATHERKEY}`) // Put app key in .env file
+        .get(`https://api.openweathermap.org/data/2.5/weather?zip=${zip}&appid=${process.env.VUE_APP_WEATHERKEY}`)
         .then(res => {
           this.weather = res.data;
         })
