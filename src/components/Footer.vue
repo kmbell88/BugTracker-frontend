@@ -3,7 +3,7 @@
     <ul>
       <li>&copy;2021 Ken Bell: Designer &amp; Engineer</li>
       <li><a href="https://github.com/kmbell88?tab=repositories" target="_blank">View Source Code on GitHub</a></li>
-      <li><a href="#" target="_blank">View BugTracker Design Overview</a></li>
+      <li><a href="https://github.com/kmbell88/BugTracker-frontend/blob/main/BugTrackerOverview.pdf" target="_blank">View BugTracker Design Overview</a></li>
     </ul>
   </footer>
 </template>
