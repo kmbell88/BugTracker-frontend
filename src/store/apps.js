@@ -53,7 +53,6 @@ export default ({
     async retrieveApps({ dispatch }) {
       let URL = process.env.VUE_APP_PROD_URL;
       let response = await axios.get(`${URL}/apps`);
-      console.log(response);
       dispatch('attemptAlterApps', response.data);
       return response;
     }

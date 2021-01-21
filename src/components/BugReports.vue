@@ -5,7 +5,7 @@
               buttonClass=""
     />
     <br><br>
-    <table v-if="bugs != null && (!$route.params.appId || bugs.some(bug => bug.app_id == $route.params.appId))" class="table">
+    <table v-if="bugs != null && bugs.length > 0 && (!$route.params.appId || bugs.some(bug => bug.app_id == $route.params.appId))" class="table">
       <thead>
         <th>Issue</th>
         <th>App</th>
