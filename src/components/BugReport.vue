@@ -66,18 +66,18 @@ export default {
       updateBug: 'bugs/updateBug'
     }),
     retrieveNotes() {
-      let URL = process.env.VUE_APP_PROD_URL;
-      axios.get(`${URL}/notes`, { params: { bug_id: this.$route.params.bugId } })
+      let addr = process.env.VUE_APP_PROD_URL;
+      axios.get(`${addr}/notes`, { params: { bug_id: this.$route.params.bugId } })
       .then(response => {
         this.notes = response.data;
       })
       .catch(error => console.log(error))
     },
     createNote() {
-      let URL = process.env.VUE_APP_PROD_URL;
+      let addr = process.env.VUE_APP_PROD_URL;
       this.noteForm.bug_id = this.$route.params.bugId;
       this.noteForm.user_id = this.user.id;
-      axios.post(`${URL}/notes`, this.noteForm)
+      axios.post(`${addr}/notes`, this.noteForm)
       .then(response => {
 
         if (this.notes == null)
@@ -90,8 +90,8 @@ export default {
       .catch(error => console.log(error))
     },
     getBug(id) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      axios.get(`${URL}/bugs/${this.$route.params.bugId}`)
+      let addr = process.env.VUE_APP_PROD_URL;
+      axios.get(`${addr}/bugs/${this.$route.params.bugId}`)
       .then(response => {
         this.bug = response.data;
       })

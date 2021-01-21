@@ -36,14 +36,14 @@ export default ({
   },
   actions: {
     async createApp({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.post(`${URL}/apps`, credentials);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${addr}/apps`, credentials);
       dispatch('attemptAlterApps', response.data);
       return response;
     },
     async updateApp({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.patch(`${URL}/apps/${credentials.id}`, credentials.appForm);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.patch(`${addr}/apps/${credentials.id}`, credentials.appForm);
       dispatch('attemptAlterApps', response.data);
       return response;
     },
@@ -51,8 +51,8 @@ export default ({
       commit('SET_APPS', data);
     },
     async retrieveApps({ dispatch }) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.get(`${URL}/apps`);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.get(`${addr}/apps`);
       dispatch('attemptAlterApps', response.data);
       return response;
     }

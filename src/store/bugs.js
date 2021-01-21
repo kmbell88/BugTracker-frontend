@@ -32,14 +32,14 @@ export default ({
   },
   actions: {
     async createBug({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.post(`${URL}/bugs`, credentials);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${addr}/bugs`, credentials);
       dispatch('attemptAlterBugs', response.data);
       return response;
     },
     async updateBug({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.patch(`${URL}/bugs/${credentials.id}`, credentials.bugForm);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.patch(`${addr}/bugs/${credentials.id}`, credentials.bugForm);
       dispatch('attemptAlterBugs', response.data);
       return response;
     },
@@ -47,8 +47,8 @@ export default ({
       commit('SET_BUGS', data);
     },
     async retrieveBugs({ dispatch }) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.get(`${URL}/bugs`);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.get(`${addr}/bugs`);
       dispatch('attemptAlterBugs', response.data);
       return response;
     }

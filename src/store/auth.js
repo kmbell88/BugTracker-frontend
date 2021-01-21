@@ -41,8 +41,8 @@ export default ({
   },
   actions: {
     async signin({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.post(`${URL}/login`, credentials);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${addr}/login`, credentials);
       if (!response.data.error) {
         dispatch('attempt', response.data);
       }
@@ -60,8 +60,8 @@ export default ({
       commit('SET_USER', null);
     },
     async register({ dispatch }, credentials) {
-      let URL = process.env.VUE_APP_PROD_URL;
-      let response = await axios.post(`${URL}/users`, credentials);
+      let addr = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${addr}/users`, credentials);
       if (!response.data.error) {
          dispatch('attempt', response.data)
       }
