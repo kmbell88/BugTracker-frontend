@@ -41,7 +41,8 @@ export default ({
   },
   actions: {
     async signin({ dispatch }, credentials) {
-      let response = await axios.post('http://localhost:3000/login', credentials);
+      let URL = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${URL}/login`, credentials);
       if (!response.data.error) {
         dispatch('attempt', response.data);
       }
@@ -59,8 +60,8 @@ export default ({
       commit('SET_USER', null);
     },
     async register({ dispatch }, credentials) {
-      console.log(credentials);
-      let response = await axios.post('http://localhost:3000/users', credentials);
+      let URL = process.env.VUE_APP_PROD_URL;
+      let response = await axios.post(`${URL}/users`, credentials);
       if (!response.data.error) {
          dispatch('attempt', response.data)
       }
