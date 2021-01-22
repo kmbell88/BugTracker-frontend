@@ -23,8 +23,8 @@
       </div>
       <div id="responsive-menu">
         <ul>
-          <li><router-link to="/BugReports">Bug Reports</router-link></li>
-          <li><router-link to="/Applications">Applications</router-link></li>
+          <li @click="showMenu"><router-link to="/BugReports">Bug Reports</router-link></li>
+          <li @click="showMenu"><router-link to="/Applications">Applications</router-link></li>
           <li><a href="#" @click.prevent="logout()">Logout</a></li>
         </ul>
       </div>
@@ -52,7 +52,7 @@ export default {
   mounted() {
     window.addEventListener('resize', () => {
       this.windowWidth = window.innerWidth;
-    })
+    });
   },
   watch: {
     windowWidth(newWindowWidth, oldWindowWidth) {
@@ -87,7 +87,7 @@ export default {
     },
     showMenu() {
       let menu = document.getElementById('responsive-menu');
-      menu.style.display == 'none' ? menu.style.display = 'block' : menu.style.display = 'none';
+      menu.style.display == 'block' ? menu.style.display = 'none' : menu.style.display = 'block';
     }
   },
   components: {

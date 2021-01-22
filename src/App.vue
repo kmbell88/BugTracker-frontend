@@ -21,6 +21,7 @@ export default {
 <style>
 * {
   font-family: Arial, Helvetica, sans-serif;
+  word-wrap: break-word;
 }
 
 body {
