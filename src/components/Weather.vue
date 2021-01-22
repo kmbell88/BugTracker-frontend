@@ -22,7 +22,7 @@ export default {
       return Math.floor((this.weather.main.temp - 273.15) * 9 / 5 + 32);
     },
     weatherIcon() {
-      return `http://openweathermap.org/img/wn/${this.weather.weather[0].icon}@2x.png`;
+      return `https://openweathermap.org/img/wn/${this.weather.weather[0].icon}@2x.png`;
     },
     weatherAlt() {
       return this.weather.weather[0].description;
