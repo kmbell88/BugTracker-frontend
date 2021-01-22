@@ -26,9 +26,9 @@
             <td data-label="Date Reported">{{bug.created_at}}</td>
             <td data-label="Reported By">{{getBugAuthor(bug.user_id)}}</td>
             <td data-label="Bug status">
-              <span v-if="bug.status === 'Resolved'" class="status status-green">Resolved</span>
-              <span v-else-if="bug.status === 'In Progress'" class="status status-yellow">In Progress</span>
-              <span v-else class="status status-red">Reported</span>
+              <div v-if="bug.status === 'Resolved'" class="status status-green">Resolved</div>
+              <div v-else-if="bug.status === 'In Progress'" class="status status-yellow">In Progress</div>
+              <div v-else class="status status-red">Reported</div>
             </td>
             <td>
               <BugModal v-if="isBugOwner(bug)"

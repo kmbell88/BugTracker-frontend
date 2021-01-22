@@ -23,9 +23,9 @@
           <td data-label="App URL">{{app.url}}</td>
           <td data-label="App Repo">{{app.repo}}</td>
           <td data-label="App Status">
-            <span v-if="app.status === 'Live/Active'" class="status status-green">Live</span>
-            <span v-else-if="app.status === 'In Production'" class="status status-yellow">In Production</span>
-            <span v-else class="status status-red">Discontinued</span>
+            <div v-if="app.status === 'Live/Active'" class="status status-green">Live</div>
+            <div v-else-if="app.status === 'In Production'" class="status status-yellow">In Production</div>
+            <div v-else class="status status-red">Discontinued</div>
           </td>
           <td>
             <Modal headerText="Edit App Info"

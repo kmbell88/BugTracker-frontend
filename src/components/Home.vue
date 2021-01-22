@@ -90,6 +90,7 @@ export default {
     max-width: 1440px;
     margin: 0 auto;
     align-items: center;
+    text-align: center;
   }
 
   .hero h1 {

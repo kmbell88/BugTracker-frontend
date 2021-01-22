@@ -13,9 +13,21 @@
     </div>
     <div class="navbar-right">
     <template v-if="authenticated">
-        <div>Welcome, {{ user.fname }}!</div>
-        <Weather />
-        <div><a href="#" @click.prevent="logout()">Logout</a></div>
+      <div class="welcome">Welcome, {{ user.fname }}!</div>
+      <Weather />
+      <div class="logout"><a href="#" @click.prevent="logout()">Logout</a></div>
+      <div class="hamburger-icon" @click="showMenu">
+        <div class="icon-bars"></div>
+        <div class="icon-bars"></div>
+        <div class="icon-bars"></div>
+      </div>
+      <div id="responsive-menu">
+        <ul>
+          <li><router-link to="/BugReports">Bug Reports</router-link></li>
+          <li><router-link to="/Applications">Applications</router-link></li>
+          <li><a href="#" @click.prevent="logout()">Logout</a></li>
+        </ul>
+      </div>
     </template>
     <template v-else>
       <div>
@@ -34,8 +46,20 @@ import logo from "../assets/images/bugtrackerlogo.png";
 export default {
   name: 'Navbar',
   data: () => ({
-    logo: logo
+    logo: logo,
+    windowWidth: 0
   }),
+  mounted() {
+    window.addEventListener('resize', () => {
+      this.windowWidth = window.innerWidth;
+    })
+  },
+  watch: {
+    windowWidth(newWindowWidth, oldWindowWidth) {
+      if (newWindowWidth > 900)
+        document.getElementById('responsive-menu').style.display = 'none';
+    }
+  },
   computed: {
     ...mapGetters({
       authenticated: 'auth/authenticated',
@@ -60,6 +84,10 @@ export default {
           name: 'Home'
         })
       })
+    },
+    showMenu() {
+      let menu = document.getElementById('responsive-menu');
+      menu.style.display == 'none' ? menu.style.display = 'block' : menu.style.display = 'none';
     }
   },
   components: {
@@ -108,6 +136,63 @@ export default {
 
   .left-element {
     padding-right: 20px;
+  }
+
+  .welcome {
+    display: block;
+  }
+
+  .hamburger-icon {
+    display: none;
+  }
+
+  #responsive-menu {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    .welcome, .nav-links, .logout {
+      display: none;
+    }
+
+    .hamburger-icon {
+      display: block;
+      padding-right: 5px;
+      padding-left: 10px;
+      cursor: pointer;
+    }
+
+    .icon-bars {
+      width: 30px;
+      height: 4px;
+      background-color: #eeeeee;
+      margin: 6px 0;
+      border-radius: 10px;
+    }
+
+    #responsive-menu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: #166abd;
+      border-radius: 0 0 10px 10px;
+      width: 150px;
+      text-align: center;
+    }
+
+    #responsive-menu ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #responsive-menu ul li {
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 10px;
+      padding-top: 5px;
+    }
   }
 
 </style>

@@ -23,7 +23,6 @@ export default new Router({
             name: 'Login'
           });
         }
-
         next();
       }
     },
@@ -37,7 +36,6 @@ export default new Router({
             name: 'Login'
           });
         }
-
         next();
       }
     },
@@ -53,7 +51,7 @@ export default new Router({
       beforeEnter: (to, from, next) => {
         if(store.getters['auth/authenticated']) {
           return next({
-            name: 'Applications'
+            name: 'BugReports'
           });
         }
         next();
@@ -66,10 +64,9 @@ export default new Router({
       beforeEnter: (to, from, next) => {
         if(store.getters['auth/authenticated']) {
           return next({
-            name: 'Applications'
+            name: 'BugReports'
           });
         }
-
         next();
       }
     },
@@ -83,7 +80,6 @@ export default new Router({
             name: 'Login'
           });
         }
-
         next();
       }
     },
@@ -97,7 +93,6 @@ export default new Router({
             name: 'Login'
           });
         }
-
         next();
       }
     }
