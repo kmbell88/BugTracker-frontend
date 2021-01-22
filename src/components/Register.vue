@@ -36,7 +36,10 @@ export default {
   },
   methods: {
     ...mapActions({
-      register: 'auth/register'
+      register: 'auth/register',
+      retrieveApps: 'apps/retrieveApps',
+      retrieveBugs: 'bugs/retrieveBugs',
+      retrieveUsers: 'users/retrieveUsers'
     }),
     signup: function() {
       this.register(this.regForm)
