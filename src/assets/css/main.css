@@ -126,7 +126,7 @@ textarea {
   font-weight: bold;
   color: #ffffff;
   margin: 0 auto;
-  max-width: 90px;
+  width: 90px;
 }
 
 .status-green {
@@ -181,6 +181,6 @@ textarea {
     margin: 0;
     margin-left: auto;
     text-align: center;
-    width: 75px;
+    width: 90px;
   }
 }
