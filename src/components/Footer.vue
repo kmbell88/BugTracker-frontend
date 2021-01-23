@@ -22,9 +22,15 @@ export default {
   footer {
     background-color: #166abd;
     color: #ffffff;
-    padding: 20px;
     margin: 0 auto;
     text-align: center;
+    padding-top: 40px;
+    padding-bottom: 35px;
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
   }
 
   li {
@@ -32,6 +38,7 @@ export default {
     display: inline-block;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 5px;
   }
 
   a {

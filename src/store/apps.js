@@ -35,13 +35,13 @@ export default ({
   },
   actions: {
     async createApp({ dispatch }, credentials) {
-      let addr = process.env.VUE_APP_PROD_URL;
+      let addr = process.env.VUE_APP_PROD_URL || 'http://localhost:3000';
       let response = await axios.post(`${addr}/apps`, credentials);
       dispatch('attemptAlterApps', response.data);
       return response;
     },
     async updateApp({ dispatch }, credentials) {
-      let addr = process.env.VUE_APP_PROD_URL;
+      let addr = process.env.VUE_APP_PROD_URL || 'http://localhost:3000';
       let response = await axios.patch(`${addr}/apps/${credentials.id}`, credentials.appForm);
       dispatch('attemptAlterApps', response.data);
       return response;
@@ -50,7 +50,7 @@ export default ({
       commit('SET_APPS', data);
     },
     async retrieveApps({ dispatch }) {
-      let addr = process.env.VUE_APP_PROD_URL;
+      let addr = process.env.VUE_APP_PROD_URL || 'http://localhost:3000';
       let response = await axios.get(`${addr}/apps`);
       dispatch('attemptAlterApps', response.data);
       return response;

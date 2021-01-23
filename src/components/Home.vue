@@ -127,6 +127,7 @@ export default {
   @media (max-width: 925px) {
   .flex-container{
     flex-direction: column;
+    align-items: center;
   }
 
   .flex-item {

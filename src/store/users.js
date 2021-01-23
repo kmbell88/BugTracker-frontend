@@ -24,7 +24,7 @@ export default ({
       commit('SET_USERS', data);
     },
     async retrieveUsers({ dispatch }) {
-      let addr = process.env.VUE_APP_PROD_URL
+      let addr = process.env.VUE_APP_PROD_URL || 'http://localhost:3000';
       let response = await axios.get(`${addr}/users`);
       dispatch('attemptAlterUsers', response.data);
       return response;
