@@ -56,7 +56,7 @@ export default {
   },
   watch: {
     windowWidth(newWindowWidth, oldWindowWidth) {
-      if (newWindowWidth > 900)
+      if (newWindowWidth > 900 && document.getElementById('responsive-menu') != null)
         document.getElementById('responsive-menu').style.display = 'none';
     }
   },

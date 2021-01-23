@@ -10,10 +10,10 @@
       <div class="modal" v-if="showModal">
       <h2>{{headerText}}</h2>
         <div class="form">
-          <input type="text" v-model="appForm.name" placeholder="App Name"><br>
+          <input type="text" v-model="appForm.name" placeholder="App Name" required><br>
           <input type="text" v-model="appForm.url" placeholder="App URL"><br>
           <input type="text" v-model="appForm.repo" placeholder="App Repository"><br>
-          <select v-model="appForm.status">
+          <select v-model="appForm.status" required>
             <option disabled value="">Select an App Status</option>
             <option>In Production</option>
             <option>Live/Active</option>
