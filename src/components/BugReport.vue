@@ -1,6 +1,6 @@
 <template>
   <div class="report-container">
-    <div v-if="bug != null" class="report-div">
+    <div v-if="bug != null && users != null" class="report-div">
       <h2>{{bug.issue}}</h2>
       <h3>{{bug.description}}</h3>
       <p>Application: {{$route.params.appName}}</p>
@@ -98,9 +98,10 @@ export default {
       .catch(error => console.log(error))
     },
     getName(id) {
-      let name = this.users.find(user => user.id == id);
-
-      return `${name.fname} ${name.lname}`
+      if (this.users != null) {
+        let name = this.users.find(user => user.id == id);
+        return `${name.fname} ${name.lname}`
+      }
     },
     updateStatus() {
       this.updateBug({ bugForm: this.bugForm, id: this.bug.id })
@@ -111,8 +112,6 @@ export default {
         console.log('error')
       })
     }
-    
-    // Update note
   },
   computed: {
     ...mapGetters({
