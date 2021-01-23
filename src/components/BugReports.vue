@@ -6,7 +6,7 @@
     />
     <br>
     <template v-if="renderTable()">
-      <div class="search-bar">&#128269;<input type="text" placeholder="Search Bugs" results="0" v-model="bugSearch" /></div>
+      <div class="search-bar">&#128269;<input type="text" placeholder="Search Bug Reports" v-model="bugSearch" /></div>
       <table class="table">
         <thead>
           <th>Issue</th>

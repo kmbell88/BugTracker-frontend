@@ -126,6 +126,10 @@ export default {
     align-items: center;
     gap: 4px;
   }
+
+  .navbar-left {
+    justify-content: flex-start;
+  }
   
   .navbar-logo {
     width: 25%;
