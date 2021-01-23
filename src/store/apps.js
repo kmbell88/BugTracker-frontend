@@ -20,13 +20,12 @@ export default ({
   },
   mutations: {
     // if statement for purging apps after logout
-    // else if statement for initializing the app array.
+    // else if statement for initializing the apps array.
     // else statement for adding or updating apps.
     SET_APPS(state, data) {
-      if (data == null) {
+      if (data == null)
         state.apps = null;
-      }
-      else if (state.apps == null || state.apps.length === 0)
+      else if (state.apps == null)
         state.apps = data;
       else {
         state.apps = state.apps.filter(app => data.id !== app.id);

@@ -22,7 +22,7 @@ export default ({
     SET_BUGS(state, data) {
       if (data == null)
         state.bugs = null;
-      else if (state.bugs == null || state.bugs.length === 0)
+      else if (state.bugs == null)
         state.bugs = data;
       else {
         state.bugs = state.bugs.filter(bug => data.id !== bug.id);
