@@ -3,6 +3,7 @@
     <h2>Register</h2>
     <form @submit.prevent="signup">
       <div class="text-red" v-if="error">{{ error }}</div>
+      <br v-else />
       <input type="text" v-model="regForm.fname" class="input" id="fname" placeholder="First Name"><br>
       <input type="text" v-model="regForm.lname" class="input" id="lname" placeholder="Last Name"><br>
       <input type="email" v-model="regForm.email" class="input" id="email" placeholder="Email"><br>
@@ -58,8 +59,8 @@ export default {
       }
       this.error = "";
     },
-    signupFailed(error) {
-      this.error = (error.response && error.response.data && error.response.data.error) || "";
+    signupFailed(response) {
+      this.error = response.data.error;
       localStorage.removeItem('token');
       localStorage.removeItem('user');
     }
