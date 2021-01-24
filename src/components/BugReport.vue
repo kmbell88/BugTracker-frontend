@@ -139,7 +139,7 @@ export default {
   }
 
   .form {
-    width: 80%;
+    width: 81%;
     margin: 0 auto;
     margin-bottom: 20px;
   }
@@ -151,5 +151,11 @@ export default {
     box-shadow: 4px 4px 4px #eeeeee;
     border: 1px solid #eeeeee;
     padding: 10px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+  }
+
+  .button {
+    margin: 1%;
   }
 </style>
