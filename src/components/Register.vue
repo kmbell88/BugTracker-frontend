@@ -12,8 +12,13 @@
       <input type="password" v-model="regForm.password_confirmation" class="input" id="password_confirmation" placeholder="Confirm Password"><br>
       <button type="submit" class="button">Sign Up</button>
     </form>
-
     <p>Already registered? <router-link to="/login">Click here to login.</router-link></p>
+    <div class="screen-fill-message fade-in" v-if="pending">
+      <div class="pending-screen">
+        <h1>Registering</h1>
+        <h2>May take a moment</h2>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,6 +37,7 @@ export default {
         password: "",
         password_confirmation: ""
       },
+      pending,
       error: ""
     }
   },
@@ -48,11 +54,13 @@ export default {
         this.error = "Password and password confirmation do not match"
         return;
       }
+      this.pending = true;
       this.register(this.regForm)
       .then(response => this.signupSuccessful(response))
       .catch(error => this.signupFailed(error))
     },
     signupSuccessful(response) {
+      this.pending = false;
       if(!response.data.token) {
         this.signupFailed(response);
         return
@@ -65,6 +73,7 @@ export default {
       this.error = "";
     },
     signupFailed(response) {
+      this.pending = false;
       this.error = response.data.error;
       localStorage.removeItem('token');
       localStorage.removeItem('user');
