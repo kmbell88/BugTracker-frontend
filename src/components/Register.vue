@@ -4,10 +4,10 @@
     <form @submit.prevent="signup">
       <div class="text-red" v-if="error">{{ error }}</div>
       <br v-else />
-      <input type="text" v-model="regForm.fname" class="input" id="fname" placeholder="First Name"><br>
-      <input type="text" v-model="regForm.lname" class="input" id="lname" placeholder="Last Name"><br>
-      <input type="email" v-model="regForm.email" class="input" id="email" placeholder="Email"><br>
-      <input type="text" v-model="regForm.zipCode" class="input" id="zipCode" placeholder="Zip Code"><br>
+      <input type="text" v-model="regForm.fname" class="input" id="fname" placeholder="First Name" required><br>
+      <input type="text" v-model="regForm.lname" class="input" id="lname" placeholder="Last Name" required><br>
+      <input type="email" v-model="regForm.email" class="input" id="email" placeholder="Email" required><br>
+      <input type="text" v-model="regForm.zipCode" class="input" id="zipCode" placeholder="Zip Code" required><br>
       <input type="password" v-model="regForm.password" class="input" id="password" placeholder="Password"><br>
       <input type="password" v-model="regForm.password_confirmation" class="input" id="password_confirmation" placeholder="Confirm Password"><br>
       <button type="submit" class="button">Sign Up</button>
@@ -43,6 +43,11 @@ export default {
       retrieveUsers: 'users/retrieveUsers'
     }),
     signup: function() {
+      // Validation
+      if (this.regForm.password != this.regForm.password_confirmation) {
+        this.error = "Password and password confirmation do not match"
+        return;
+      }
       this.register(this.regForm)
       .then(response => this.signupSuccessful(response))
       .catch(error => this.signupFailed(error))
@@ -70,7 +75,7 @@ export default {
 
 <style scoped>
 .text-red {
-  color: red;
+  color: #ff0000;
 }
 
 .register {

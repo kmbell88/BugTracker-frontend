@@ -52,7 +52,7 @@ export default {
 
 <style scoped>
 .text-red {
-  color: red;
+  color: #ff0000;
 }
 
 .login {
