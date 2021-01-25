@@ -37,7 +37,7 @@ export default {
         password: "",
         password_confirmation: ""
       },
-      pending,
+      pending: false,
       error: ""
     }
   },
