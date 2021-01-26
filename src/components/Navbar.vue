@@ -80,9 +80,11 @@ export default {
       this.purgeUsers(null);
       this.signOut()
       .then(() => {
-        this.$router.replace({
-          name: 'Home'
-        })
+        if (this.$route.path != '/') {
+          this.$router.replace({
+            name: 'Home'
+          })
+        }
       })
     },
     showMenu() {
